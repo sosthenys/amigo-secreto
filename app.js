@@ -1,48 +1,91 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 let listaAmigos = [];
-let conteLista = listaAmigos.length
-let amigoEscolhido = ""
-let nomeAmigo = ""
-
+let listaAdicionados = [];
+let respostaAmigo = true;
+let nome = "";
+let nomeAmigo = "";
+let conteLista = 0;
 
 function    validarNome() {
 
- nomeAmigo = document.querySelector('input-name').value ;
+   nomeAmigo = document.querySelector('input').value ;
 
-if nomeAmigo = "" {
+   console.log(nomeAmigo)
 
-    alert("Digite um nome e clique no botão Adicionar!");
-    break
+    if (nomeAmigo == "") {
 
+        alert ("Digite um nome e clique no botão Adicionar!");
+
+        respostaAmigo = false;
+        return respostaAmigo;
+  
+    }
 }
 
 
 function limparCampo() {
-
-    nomeAmigo = '';
-
-}
+    nomeAmigo = document.querySelector('input');
+    nomeAmigo.value = "";
 
 }
 
-function    adicionarAmigo() {
+function adicionarAmigo() {
 
-    validarNome()
-    
+    validarNome();
+
+
+    if (respostaAmigo == false){
+        return;
+    }
+
     listaAmigos.push(nomeAmigo)
 
-    limparCampo()
+    conteLista = listaAmigos.length
+
+    console.log(listaAmigos)
+
+    exibirListaAmigos();
+
+    limparCampo();
 }
 
-function    sortearAmigo() {
+function sortearAmigo() {
 
-    amigoEscolhido = parseInt(Math.random() * conteLista + 1)
+    listaUl = document.getElementById("resultado");
 
+    conteLista = listaAmigos.length;
+
+    let amigoEscolhido = parseInt(Math.random() * conteLista + 1);
+    
+    amigoEscolhido = listaAmigos[amigoEscolhido];
+
+    const item = document.createElement("li");
+    
+    item.textContent = amigoEscolhido;
+    
+    listaUl.appendChild(item);
 
 }
 
 function    exibirListaAmigos(){
 
-    
+    listaUl = document.getElementById("listaAmigos");
 
+        if (listaAmigos.includes(listaAdicionados)){
+            return;
+        }else{ 
+            for (var i = 0; i <= conteLista ;i++){
+        
+            const item = document.createElement("li");
+            
+            item.textContent = listaAmigos[i];
+            
+            listaUl.appendChild(item);
+
+            }
+
+            listaAdicionados.push(listaAmigos[i]);
+        }
+
+    
 }
