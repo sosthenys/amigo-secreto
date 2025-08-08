@@ -10,8 +10,6 @@ function    validarNome() {
 
    nomeAmigo = document.querySelector('input').value ;
 
-   console.log(nomeAmigo)
-
     if (nomeAmigo == "") {
 
         alert ("Digite um nome e clique no botão Adicionar!");
@@ -33,7 +31,6 @@ function adicionarAmigo() {
 
     validarNome();
 
-
     if (respostaAmigo == false){
         return;
     }
@@ -41,8 +38,6 @@ function adicionarAmigo() {
     listaAmigos.push(nomeAmigo)
 
     conteLista = listaAmigos.length
-
-    console.log(listaAmigos)
 
     exibirListaAmigos();
 
@@ -58,22 +53,19 @@ function sortearAmigo() {
 
     let amigoEscolhido = parseInt(Math.random() * (conteLista + 1));
 
-    if (amigoEscolhido > 0){
+    if (amigoEscolhido < conteLista){
 
         limparListaUl('resultado');
 
         limparListaUl('listaAmigos');
-
-        console.log(`${amigoEscolhido}`)
-        
+           
         amigoEscolhido = listaAmigos[amigoEscolhido];
 
         const item = document.createElement("li");
-        
+            
         item.textContent = amigoEscolhido;
-        
+            
         listaUl.appendChild(item);
-
     }
 
 }
