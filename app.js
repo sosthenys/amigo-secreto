@@ -1,6 +1,6 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
 let listaAmigos = [];
-let listaAdicionados = [];
+let listaUl = [];
 let respostaAmigo = true;
 let nome = "";
 let nomeAmigo = "";
@@ -51,41 +51,58 @@ function adicionarAmigo() {
 
 function sortearAmigo() {
 
+
     listaUl = document.getElementById("resultado");
 
     conteLista = listaAmigos.length;
 
-    let amigoEscolhido = parseInt(Math.random() * conteLista + 1);
-    
-    amigoEscolhido = listaAmigos[amigoEscolhido];
+    let amigoEscolhido = parseInt(Math.random() * (conteLista + 1));
 
-    const item = document.createElement("li");
-    
-    item.textContent = amigoEscolhido;
-    
-    listaUl.appendChild(item);
+    if (amigoEscolhido > 0){
+
+        limparListaUl('resultado');
+
+        limparListaUl('listaAmigos');
+
+        console.log(`${amigoEscolhido}`)
+        
+        amigoEscolhido = listaAmigos[amigoEscolhido];
+
+        const item = document.createElement("li");
+        
+        item.textContent = amigoEscolhido;
+        
+        listaUl.appendChild(item);
+
+    }
 
 }
 
+function limparListaUl(id){
+
+    const listaUl = document.getElementById(id);
+        
+    while (listaUl.hasChildNodes()) {
+        listaUl.removeChild(listaUl.children[0]);
+    }
+}
+    
+    
+
 function    exibirListaAmigos(){
 
-    listaUl = document.getElementById("listaAmigos");
+    limparListaUl('listaAmigos');
 
-        if (listaAmigos.includes(listaAdicionados)){
-            return;
-        }else{ 
-            for (var i = 0; i <= conteLista ;i++){
+    for (var i = 0; i < conteLista ;i++){
+
+        listaUl = document.getElementById('listaAmigos');
         
-            const item = document.createElement("li");
-            
-            item.textContent = listaAmigos[i];
-            
-            listaUl.appendChild(item);
+        const item = document.createElement("li");
+                
+        item.textContent = listaAmigos[i];
+                
+        listaUl.appendChild(item);
 
-            }
-
-            listaAdicionados.push(listaAmigos[i]);
-        }
-
+    }
     
 }
