@@ -5,4 +5,4 @@
 <h2>Funcionalidades</h2>
 <p>Adicionar amigo: valida se o campo foi preenchido, insere o nome na lista de amigos, exibe a lista de amigos na tela e limpa o campo de preenchimento para receber um novo nome</p>
 <p>Sortear amigo: escolhe um número aleatório para indicar o nome do amigo na lista, limpa as listas na tela e exibe o resultado</p>
-<h1>Autor app.js: Sosthenys Fernandes de Lima</h1>
+<h2>Autor app.js: Sosthenys Fernandes de Lima</h2>
