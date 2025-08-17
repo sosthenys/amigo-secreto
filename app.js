@@ -1,4 +1,5 @@
 //O principal objetivo deste desafio é fortalecer suas habilidades em lógica de programação. Aqui você deverá desenvolver a lógica para resolver o problema.
+//Declarações de variavreis
 let listaAmigos = [];
 let listaUl = [];
 let respostaAmigo = true;
@@ -6,6 +7,8 @@ let nome = "";
 let nomeAmigo = "";
 let conteLista = 0;
 
+
+// Verifica se o campo esta vazio, Exibe alerta se a variavél esta vazia e retorna uma resposta
 function    validarNome() {
 
    nomeAmigo = document.querySelector('input').value ;
@@ -20,13 +23,14 @@ function    validarNome() {
     }
 }
 
-
+//Limpa o campo de preenchimento
 function limparCampo() {
     nomeAmigo = document.querySelector('input');
     nomeAmigo.value = "";
 
 }
 
+//adiciona amigo na lista se o campo não for vazio
 function adicionarAmigo() {
 
     validarNome();
@@ -44,6 +48,7 @@ function adicionarAmigo() {
     limparCampo();
 }
 
+//Faz o sorteio do amigo secreto e manipula o HTML para inserir e limpaz tags se a lista não for vazia
 function sortearAmigo() {
 
 
@@ -69,7 +74,7 @@ function sortearAmigo() {
     }
 
 }
-
+//Limpa itens  da tag
 function limparListaUl(id){
 
     const listaUl = document.getElementById(id);
@@ -80,7 +85,7 @@ function limparListaUl(id){
 }
     
     
-
+//exibe na tela a lista de amigos enquanto contem itens na lista
 function    exibirListaAmigos(){
 
     limparListaUl('listaAmigos');
